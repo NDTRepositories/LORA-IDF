@@ -1,0 +1,104 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/bootloader/esp-idf/esptool_py && /home/intonation/.espressif/python_env/idf5.2_py3.10_env/bin/python /home/intonation/Documents/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/bootloader/bootloader.bin
+Bootloader binary size 0x6870 bytes. 0x790 bytes (7%) free.
+[2/8] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/main/main.c: In function 'oled_display':
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/main/main.c:361:39: warning: passing argument 3 of 'ssd1306_display_text' from incompatible pointer type [-Wincompatible-pointer-types]
+  361 |         ssd1306_display_text(&dev, 0, &module_data.rssi, 14, false);
+      |                                       ^~~~~~~~~~~~~~~~~
+      |                                       |
+      |                                       volatile int *
+In file included from /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/main/main.c:25:
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/components/ssd1306/ssd1306.h:116:61: note: expected 'char *' but argument is of type 'volatile int *'
+  116 | void ssd1306_display_text(SSD1306_t * dev, int page, char * text, int text_len, bool invert);
+      |                                                      ~~~~~~~^~~~
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/main/main.c:362:39: warning: passing argument 3 of 'ssd1306_display_text' from incompatible pointer type [-Wincompatible-pointer-types]
+  362 |         ssd1306_display_text(&dev, 1, &module_data.snr, 16, false);
+      |                                       ^~~~~~~~~~~~~~~~
+      |                                       |
+      |                                       volatile int *
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/components/ssd1306/ssd1306.h:116:61: note: expected 'char *' but argument is of type 'volatile int *'
+  116 | void ssd1306_display_text(SSD1306_t * dev, int page, char * text, int text_len, bool invert);
+      |                                                      ~~~~~~~^~~~
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/main/main.c:363:39: warning: passing argument 3 of 'ssd1306_display_text' from incompatible pointer type [-Wincompatible-pointer-types]
+  363 |         ssd1306_display_text(&dev, 2, &module_data.count_lost_packet,16, false);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                       |
+      |                                       volatile int *
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/components/ssd1306/ssd1306.h:116:61: note: expected 'char *' but argument is of type 'volatile int *'
+  116 | void ssd1306_display_text(SSD1306_t * dev, int page, char * text, int text_len, bool invert);
+      |                                                      ~~~~~~~^~~~
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/main/main.c:364:39: warning: passing argument 3 of 'ssd1306_display_text' from incompatible pointer type [-Wincompatible-pointer-types]
+  364 |         ssd1306_display_text(&dev, 3, &module_data.SER, 13, false);
+      |                                       ^~~~~~~~~~~~~~~~
+      |                                       |
+      |                                       volatile float *
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/components/ssd1306/ssd1306.h:116:61: note: expected 'char *' but argument is of type 'volatile float *'
+  116 | void ssd1306_display_text(SSD1306_t * dev, int page, char * text, int text_len, bool invert);
+      |                                                      ~~~~~~~^~~~
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/main/main.c:314:26: warning: variable 'bottom' set but not used [-Wunused-but-set-variable]
+  314 |         int center, top, bottom;
+      |                          ^~~~~~
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/main/main.c:314:21: warning: variable 'top' set but not used [-Wunused-but-set-variable]
+  314 |         int center, top, bottom;
+      |                     ^~~
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/main/main.c:314:13: warning: variable 'center' set but not used [-Wunused-but-set-variable]
+  314 |         int center, top, bottom;
+      |             ^~~~~~
+In file included from /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/main/main.c:26:
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/components/ssd1306/font8x8_basic.h: At top level:
+/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/components/ssd1306/font8x8_basic.h:41:16: warning: 'font8x8_basic_tr' defined but not used [-Wunused-variable]
+   41 | static uint8_t font8x8_basic_tr[128][8] = {
+      |                ^~~~~~~~~~~~~~~~
+[3/8] Linking C static library esp-idf/main/libmain.a
+[4/8] Generating ld/sections.ld
+[5/8] Linking CXX executable lora.elf
+[6/8] Generating binary image from built executable
+esptool.py v4.6.2
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/lora.bin
+[7/8] cd /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/esp-idf/esptool_py && /home/intonation/.espressif/python_env/idf5.2_py3.10_env/bin/python /home/intonation/Documents/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/partition_table/partition-table.bin /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/lora.bin
+lora.bin binary size 0x3a650 bytes. Smallest app partition is 0x100000 bytes. 0xc59b0 bytes (77%) free.
+[7/8] cd /home/intonation/Documents/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/intonation/Documents/esp/esp-idf -D "SERIAL_TOOL=/home/intonation/.espressif/python_env/idf5.2_py3.10_env/bin/python;;/home/intonation/Documents/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build -P /home/intonation/Documents/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 lora.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.6.2
+Serial port /dev/ttyUSB0
+Connecting....
+Chip is ESP32-D0WDQ6 (revision v1.0)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 30:c6:f7:2e:fe:a4
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x0004afff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 26736 bytes to 16800...
+Writing at 0x00001000... (50 %)
+Writing at 0x00007662... (100 %)
+Wrote 26736 bytes (16800 compressed) at 0x00001000 in 0.8 seconds (effective 275.0 kbit/s)...
+Hash of data verified.
+Compressed 239184 bytes to 127405...
+Writing at 0x00010000... (12 %)
+Writing at 0x0001c770... (25 %)
+Writing at 0x00023cf0... (37 %)
+Writing at 0x00029d77... (50 %)
+Writing at 0x0002f633... (62 %)
+Writing at 0x00038b49... (75 %)
+Writing at 0x0003fe30... (87 %)
+Writing at 0x00045a48... (100 %)
+Wrote 239184 bytes (127405 compressed) at 0x00010000 in 3.1 seconds (effective 610.1 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 356.0 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
