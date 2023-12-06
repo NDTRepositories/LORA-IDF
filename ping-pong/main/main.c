@@ -245,7 +245,8 @@ void task_secondary()
 
 			ESP_LOGI(pcTaskGetName(NULL), "Start");
 			uint8_t buf[256]; // Maximum Payload size of SX1276/77/78/79 is 255
-
+            while(1)
+            {
 				lora_receive(); // put into receive mode
 				if(lora_received())
 				{
@@ -299,11 +300,8 @@ void task_secondary()
 				}
 				vTaskDelay(1); // Avoid WatchDog alerts
 
-
-
-
+        }
 }
-
 
 #endif // CONFIG_SECONDARY
 
