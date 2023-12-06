@@ -1,4 +1,4 @@
-# Install script for directory: /home/intonation/Documents/esp/esp-idf/components/mbedtls/mbedtls/library
+# Install script for directory: /home/intonation/esp-idf/components/mbedtls/mbedtls/library
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,14 +38,14 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/esp-idf/mbedtls/mbedtls/library/libmbedx509.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/esp-idf/mbedtls/mbedtls/library/libmbedx509.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/esp-idf/mbedtls/mbedtls/library/libmbedtls.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/esp-idf/mbedtls/mbedtls/library/libmbedtls.a")
 endif()
 

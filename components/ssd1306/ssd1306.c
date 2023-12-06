@@ -1,10 +1,7 @@
 #include <string.h>
-
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-
 #include "esp_log.h"
-
 #include "ssd1306.h"
 #include "font8x8_basic.h"
 
@@ -87,7 +84,7 @@ void ssd1306_display_image(SSD1306_t * dev, int page, int seg, uint8_t * images,
 	memcpy(&dev->_page[page]._segs[seg], images, width);
 }
 
-void ssd1306_display_text(SSD1306_t * dev, int page, char * text, int text_len, bool invert)
+void ssd1306_display_text(SSD1306_t * dev, int page, char* text, int text_len, bool invert)
 {
 	if (page >= dev->_pages) return;
 	int _text_len = text_len;
@@ -112,7 +109,7 @@ void ssd1306_display_text(SSD1306_t * dev, int page, char * text, int text_len, 
 }
 
 // by Coert Vonk
-void 
+void
 ssd1306_display_text_x3(SSD1306_t * dev, int page, char * text, int text_len, bool invert)
 {
 	if (page >= dev->_pages) return;
@@ -148,8 +145,8 @@ ssd1306_display_text_x3(SSD1306_t * dev, int page, char * text, int text_len, bo
 
 			uint8_t image[24];
 			for (uint8_t xx = 0; xx < 8; xx++) { // for each column (x-direction)
-				image[xx*3+0] = 
-				image[xx*3+1] = 
+				image[xx*3+0] =
+				image[xx*3+1] =
 				image[xx*3+2] = out_columns[xx].u8[yy];
 			}
 			if (invert) ssd1306_invert(image, 24);
@@ -230,10 +227,10 @@ void ssd1306_scroll_text(SSD1306_t * dev, char * text, int text_len, bool invert
 		if (srcIndex == dev->_scStart) break;
 		srcIndex = srcIndex - dev->_scDirection;
 	}
-	
+
 	int _text_len = text_len;
 	if (_text_len > 16) _text_len = 16;
-	
+
 	ssd1306_display_text(dev, srcIndex, text, text_len, invert);
 }
 

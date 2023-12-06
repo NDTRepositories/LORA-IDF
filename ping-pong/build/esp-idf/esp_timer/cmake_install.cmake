@@ -1,4 +1,4 @@
-# Install script for directory: /home/intonation/Documents/esp/esp-idf/components/esp_timer
+# Install script for directory: /home/intonation/esp-idf/components/esp_timer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

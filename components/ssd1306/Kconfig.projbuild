@@ -56,7 +56,7 @@ menu "SSD1306 Configuration"
 		depends on I2C_INTERFACE
 		int "SCL GPIO number"
 		range 0 GPIO_RANGE_MAX
-		default 22 if IDF_TARGET_ESP32
+		default 33 if IDF_TARGET_ESP32
 		default 12 if IDF_TARGET_ESP32S2
 		default 12 if IDF_TARGET_ESP32S3
 		default  6 # C3 and others
@@ -69,7 +69,7 @@ menu "SSD1306 Configuration"
 		depends on I2C_INTERFACE
 		int "SDA GPIO number"
 		range 0 GPIO_RANGE_MAX
-		default 21 if IDF_TARGET_ESP32
+		default 32 if IDF_TARGET_ESP32
 		default 11 if IDF_TARGET_ESP32S2
 		default 11 if IDF_TARGET_ESP32S3
 		default  5 # C3 and others
@@ -148,7 +148,7 @@ menu "SSD1306 Configuration"
 	choice I2C_PORT
 		depends on I2C_INTERFACE
 		prompt "I2C port that controls this bus"
-		default I2C_PORT_0
+		default I2C_PORT_1
 		help
 			Select I2C port that controls this bus.
 		config I2C_PORT_0

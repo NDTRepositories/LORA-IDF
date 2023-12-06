@@ -1,4 +1,4 @@
-# Install script for directory: /home/intonation/Documents/esp/esp-idf/components/bootloader/subproject
+# Install script for directory: /home/intonation/esp-idf/components/bootloader/subproject
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/bootloader/esp-idf/cmake_install.cmake")
+  include("/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/bootloader/esp-idf/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

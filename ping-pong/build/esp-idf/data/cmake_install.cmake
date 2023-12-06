@@ -1,4 +1,4 @@
-# Install script for directory: /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/components/data
+# Install script for directory: /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/components/data
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,4 +1,4 @@
-# Install script for directory: /home/intonation/Documents/esp/esp-idf/components/esp_system/port
+# Install script for directory: /home/intonation/esp-idf/components/esp_system/port
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/esp-idf/esp_system/port/soc/esp32/cmake_install.cmake")
+  include("/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/esp-idf/esp_system/port/soc/esp32/cmake_install.cmake")
 endif()
 

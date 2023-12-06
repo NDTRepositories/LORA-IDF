@@ -2,34 +2,34 @@
 	"sources" : 
 	[
 		{
-			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/CMakeFiles/bootloader"
+			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/CMakeFiles/bootloader"
 		},
 		{
-			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/CMakeFiles/bootloader.rule"
+			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/CMakeFiles/bootloader.rule"
 		},
 		{
-			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/CMakeFiles/bootloader-complete.rule"
+			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/CMakeFiles/bootloader-complete.rule"
 		},
 		{
-			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
 		},
 		{
-			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
 		},
 		{
-			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
 		},
 		{
-			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
 		},
 		{
-			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
 		},
 		{
-			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
 		},
 		{
-			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+			"file" : "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
 		}
 	],
 	"target" : 

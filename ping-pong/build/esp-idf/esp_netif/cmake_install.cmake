@@ -1,4 +1,4 @@
-# Install script for directory: /home/intonation/Documents/esp/esp-idf/components/esp_netif
+# Install script for directory: /home/intonation/esp-idf/components/esp_netif
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -232,6 +232,25 @@ rule CXX_STATIC_LIBRARY_LINKER__mbedtls_
 #############################################
 # Rule for compiling C files.
 
+rule C_COMPILER____idf_esp_bootloader_format_
+  depfile = $DEP_FILE
+  deps = gcc
+  command = /home/intonation/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER____idf_esp_bootloader_format_
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/intonation/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/intonation/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
 rule C_COMPILER____idf_esp_app_format_
   depfile = $DEP_FILE
   deps = gcc
@@ -1260,6 +1279,25 @@ rule C_STATIC_LIBRARY_LINKER____idf_mqtt_
 #############################################
 # Rule for compiling C files.
 
+rule C_COMPILER____idf_nvs_sec_provider_
+  depfile = $DEP_FILE
+  deps = gcc
+  command = /home/intonation/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER____idf_nvs_sec_provider_
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/intonation/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/intonation/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
 rule C_COMPILER____idf_perfmon_
   depfile = $DEP_FILE
   deps = gcc
@@ -1451,7 +1489,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_ssd1306_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake --regenerate-during-build -S/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong -B/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build
+  command = /usr/bin/cmake --regenerate-during-build -S/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong -B/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build
   description = Re-running CMake...
   generator = 1
 

@@ -1,4 +1,4 @@
-/* * Data converted from /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

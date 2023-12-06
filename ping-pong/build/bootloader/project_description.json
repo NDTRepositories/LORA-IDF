@@ -1,14 +1,14 @@
 {
     "project_name":       "bootloader",
-    "project_path":       "/home/intonation/Documents/esp/esp-idf/components/bootloader/subproject",
-    "build_dir":          "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/build/bootloader",
-    "config_file":        "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/ping-pong/sdkconfig",
+    "project_path":       "/home/intonation/esp-idf/components/bootloader/subproject",
+    "build_dir":          "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/build/bootloader",
+    "config_file":        "/home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/ping-pong/sdkconfig",
     "config_defaults":    "",
     "bootloader_elf":     "",
     "app_elf":            "bootloader.elf",
     "app_bin":            "bootloader.bin",
     "build_type":         "flash_app",
-    "git_revision":       "v5.2-dev-544-g54576b7528-dirty",
+    "git_revision":       "v5.2-dev-811-gc212305646",
     "target":             "esp32",
     "rev":                "0",
     "min_rev":            "0",
@@ -17,10 +17,10 @@
     "monitor_baud" :      "115200",
     "monitor_toolprefix": "xtensa-esp32-elf-",
     "config_environment" : {
-        "COMPONENT_KCONFIGS" : "/home/intonation/Documents/esp/esp-idf/components/efuse/Kconfig;/home/intonation/Documents/esp/esp-idf/components/esp_common/Kconfig;/home/intonation/Documents/esp/esp-idf/components/esp_hw_support/Kconfig;/home/intonation/Documents/esp/esp-idf/components/esp_system/Kconfig;/home/intonation/Documents/esp/esp-idf/components/freertos/Kconfig;/home/intonation/Documents/esp/esp-idf/components/hal/Kconfig;/home/intonation/Documents/esp/esp-idf/components/log/Kconfig;/home/intonation/Documents/esp/esp-idf/components/newlib/Kconfig;/home/intonation/Documents/esp/esp-idf/components/soc/Kconfig;/home/intonation/Documents/esp/esp-idf/components/spi_flash/Kconfig",
-        "COMPONENT_KCONFIGS_PROJBUILD" : "/home/intonation/Documents/esp/esp-idf/components/bootloader/Kconfig.projbuild;/home/intonation/Documents/esp/esp-idf/components/esp_app_format/Kconfig.projbuild;/home/intonation/Documents/esp/esp-idf/components/esp_rom/Kconfig.projbuild;/home/intonation/Documents/esp/esp-idf/components/esptool_py/Kconfig.projbuild;/home/intonation/Documents/esp/esp-idf/components/partition_table/Kconfig.projbuild"
+        "COMPONENT_KCONFIGS" : "/home/intonation/esp-idf/components/efuse/Kconfig;/home/intonation/esp-idf/components/esp_common/Kconfig;/home/intonation/esp-idf/components/esp_hw_support/Kconfig;/home/intonation/esp-idf/components/esp_system/Kconfig;/home/intonation/esp-idf/components/freertos/Kconfig;/home/intonation/esp-idf/components/hal/Kconfig;/home/intonation/esp-idf/components/log/Kconfig;/home/intonation/esp-idf/components/newlib/Kconfig;/home/intonation/esp-idf/components/soc/Kconfig;/home/intonation/esp-idf/components/spi_flash/Kconfig",
+        "COMPONENT_KCONFIGS_PROJBUILD" : "/home/intonation/esp-idf/components/bootloader/Kconfig.projbuild;/home/intonation/esp-idf/components/esp_app_format/Kconfig.projbuild;/home/intonation/esp-idf/components/esp_rom/Kconfig.projbuild;/home/intonation/esp-idf/components/esptool_py/Kconfig.projbuild;/home/intonation/esp-idf/components/partition_table/Kconfig.projbuild"
     },
-    "build_components" : [ "bootloader", "bootloader_support", "efuse", "esp_app_format", "esp_common", "esp_hw_support", "esp_rom", "esp_system", "esptool_py", "freertos", "hal", "log", "main", "micro-ecc", "newlib", "partition_table", "soc", "spi_flash", "xtensa", "" ],
-    "build_component_paths" : [ "/home/intonation/Documents/esp/esp-idf/components/bootloader", "/home/intonation/Documents/esp/esp-idf/components/bootloader_support", "/home/intonation/Documents/esp/esp-idf/components/efuse", "/home/intonation/Documents/esp/esp-idf/components/esp_app_format", "/home/intonation/Documents/esp/esp-idf/components/esp_common", "/home/intonation/Documents/esp/esp-idf/components/esp_hw_support", "/home/intonation/Documents/esp/esp-idf/components/esp_rom", "/home/intonation/Documents/esp/esp-idf/components/esp_system", "/home/intonation/Documents/esp/esp-idf/components/esptool_py", "/home/intonation/Documents/esp/esp-idf/components/freertos", "/home/intonation/Documents/esp/esp-idf/components/hal", "/home/intonation/Documents/esp/esp-idf/components/log", "/home/intonation/Documents/esp/esp-idf/components/bootloader/subproject/main", "/home/intonation/Documents/esp/esp-idf/components/bootloader/subproject/components/micro-ecc", "/home/intonation/Documents/esp/esp-idf/components/newlib", "/home/intonation/Documents/esp/esp-idf/components/partition_table", "/home/intonation/Documents/esp/esp-idf/components/soc", "/home/intonation/Documents/esp/esp-idf/components/spi_flash", "/home/intonation/Documents/esp/esp-idf/components/xtensa", "" ],
+    "build_components" : [ "bootloader", "bootloader_support", "efuse", "esp_app_format", "esp_bootloader_format", "esp_common", "esp_hw_support", "esp_rom", "esp_system", "esptool_py", "freertos", "hal", "log", "main", "micro-ecc", "newlib", "partition_table", "soc", "spi_flash", "xtensa", "" ],
+    "build_component_paths" : [ "/home/intonation/esp-idf/components/bootloader", "/home/intonation/esp-idf/components/bootloader_support", "/home/intonation/esp-idf/components/efuse", "/home/intonation/esp-idf/components/esp_app_format", "/home/intonation/esp-idf/components/esp_bootloader_format", "/home/intonation/esp-idf/components/esp_common", "/home/intonation/esp-idf/components/esp_hw_support", "/home/intonation/esp-idf/components/esp_rom", "/home/intonation/esp-idf/components/esp_system", "/home/intonation/esp-idf/components/esptool_py", "/home/intonation/esp-idf/components/freertos", "/home/intonation/esp-idf/components/hal", "/home/intonation/esp-idf/components/log", "/home/intonation/esp-idf/components/bootloader/subproject/main", "/home/intonation/esp-idf/components/bootloader/subproject/components/micro-ecc", "/home/intonation/esp-idf/components/newlib", "/home/intonation/esp-idf/components/partition_table", "/home/intonation/esp-idf/components/soc", "/home/intonation/esp-idf/components/spi_flash", "/home/intonation/esp-idf/components/xtensa", "" ],
     "debug_prefix_map_gdbinit": ""
 }

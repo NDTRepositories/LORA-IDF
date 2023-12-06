@@ -1,4 +1,4 @@
-# Install script for directory: /home/intonation/Documents/esp/esp-idf/components/soc
+# Install script for directory: /home/intonation/esp-idf/components/soc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

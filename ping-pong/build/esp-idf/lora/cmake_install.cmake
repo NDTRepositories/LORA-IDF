@@ -1,4 +1,4 @@
-# Install script for directory: /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/esp-idf-sx127x/components/lora
+# Install script for directory: /home/intonation/Documents/esp/esp-idf/examples/esp-idf-sx127x/thang/components/lora
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

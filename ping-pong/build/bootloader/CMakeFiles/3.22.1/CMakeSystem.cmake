@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Linux")
 set(CMAKE_HOST_SYSTEM_VERSION "6.2.0-37-generic")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-include("/home/intonation/Documents/esp/esp-idf/tools/cmake/toolchain-esp32.cmake")
+include("/home/intonation/esp-idf/tools/cmake/toolchain-esp32.cmake")
 
 set(CMAKE_SYSTEM "Generic")
 set(CMAKE_SYSTEM_NAME "Generic")

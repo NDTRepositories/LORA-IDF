@@ -36,16 +36,14 @@ float SAMPLES = 30;
 volatile char TIME_STAMP[50];
 volatile Module_Data module_data;
 
-SemaphoreHandle_t dataMutex;
 
 
 #if CONFIG_DS1307
 
 
-void ds1307(void *pvParameters)
+void ds1307()
 {
-        if (xSemaphoreTake(dataMutex, portMAX_DELAY))
-        {
+
 			i2c_dev_t dev;
 			memset(&dev, 0, sizeof(i2c_dev_t));
 
@@ -63,19 +61,20 @@ void ds1307(void *pvParameters)
 					};
 			ESP_ERROR_CHECK(ds1307_set_time(&dev, &time));
 
-			while (1)
-				{
+
 					ds1307_get_time(&dev, &time);
 
-                    xSemaphoreGive(dataMutex);
+
 
 					printf("%04d-%02d-%02d %02d:%02d:%02d\n", time.tm_year + 1900 /*Add 1900 for better readability*/, time.tm_mon + 1,
 						time.tm_mday, time.tm_hour, time.tm_min, time.tm_sec);
 
 
                  	vTaskDelay(pdMS_TO_TICKS(500));
-				}
-        }
+
+
+
+
 
 }
 #endif
@@ -84,11 +83,11 @@ void ds1307(void *pvParameters)
 
 #if CONFIG_DS3231
 
-void ds3231(void *pvParameters)
+void ds3231()
 {
 
-        if (xSemaphoreTake(dataMutex, portMAX_DELAY))
-        {
+
+
         i2c_dev_t dev;
         memset(&dev, 0, sizeof(i2c_dev_t));
 
@@ -106,8 +105,7 @@ void ds3231(void *pvParameters)
 				};
         ESP_ERROR_CHECK(ds3231_set_time(&dev, &time));
 
-			while (1)
-				{
+
 					float temp;
 
 					vTaskDelay(pdMS_TO_TICKS(250));
@@ -115,25 +113,23 @@ void ds3231(void *pvParameters)
 					if (ds3231_get_temp_float(&dev, &temp) != ESP_OK)
 						{
 							printf("Could not get temperature\n");
-							continue;
 						}
 
 					if (ds3231_get_time(&dev, &time) != ESP_OK)
 						{
 							printf("Could not get time\n");
-							continue;
 						}
 
 
-            xSemaphoreGive(dataMutex);
 
-			printf("%04d-%02d-%02d %02d:%02d:%02d, %.2f deg Cel\n", time.tm_year + 1900 /*Add 1900 for better readability*/, time.tm_mon + 1,
+
+		        printf("%04d-%02d-%02d %02d:%02d:%02d, %.2f deg Cel\n", time.tm_year + 1900 /*Add 1900 for better readability*/, time.tm_mon + 1,
 							time.tm_mday, time.tm_hour, time.tm_min, time.tm_sec, temp);
 
-				}
-
-        }
 }
+
+
+
 #endif
 
 
@@ -143,16 +139,17 @@ void ds3231(void *pvParameters)
 #define TIMEOUT 100
 
 
-void task_primary(void *pvParameters)
+void task_primary()
 {
 
-        if (xSemaphoreTake(dataMutex, portMAX_DELAY))
-        {
 
+
+//
 
 		ESP_LOGI(pcTaskGetName(NULL), "Start");
 		uint8_t buf[256]; // Maximum Payload size of SX1276/77/78/79 is 255
-		while(1) {
+        while(1)
+        {
 			TickType_t nowTick = xTaskGetTickCount();
 			int send_len = sprintf((char *)buf,"Hello World!! %"PRIu32, nowTick);
 
@@ -162,14 +159,18 @@ void task_primary(void *pvParameters)
 			send_len = 255;
 		#endif
 
+
 			lora_send_packet(buf, send_len);
 			ESP_LOGI(pcTaskGetName(NULL), "%d byte packet sent:[%.*s]", send_len, send_len, buf);
 
-			bool waiting = true;
 			count_lost_packet =0;
 			symbol_error = 0 ;
+            bool waiting = true;
 			TickType_t startTick = xTaskGetTickCount();
-			while(waiting) {
+
+            while(waiting)
+            {
+
 				lora_receive(); // put into receive mode
 				if(lora_received())
 				{
@@ -204,33 +205,33 @@ void task_primary(void *pvParameters)
 					ESP_LOGI(pcTaskGetName(NULL), "count lost packet :%d", count_lost_packet);
 					ESP_LOGI(pcTaskGetName(NULL), "symbol_error : %.2lf ", symbol_error);
 					ESP_LOGI(pcTaskGetName(NULL), "Response time is %"PRIu32" MillSecs", diffTick * portTICK_PERIOD_MS);
+                    waiting = false;
 
 					printf(" \n ");
-					waiting = false;
 				}
 				TickType_t currentTick = xTaskGetTickCount();
 				TickType_t diffTick = currentTick - startTick;
 				ESP_LOGD(pcTaskGetName(NULL), "diffTick=%"PRIu32, diffTick);
 
 
-                xSemaphoreGive(dataMutex);
 
 				if (diffTick > TIMEOUT) {
 					ESP_LOGW(pcTaskGetName(NULL), "Response timeout");
+                    waiting = false;
 					printf(" \n ");
-					waiting = false;
+
 				}
 
 
 
 				vTaskDelay(1); // Avoid WatchDog alerts
-			} // end waiting
+			 }// end waiting
+
 			vTaskDelay(pdMS_TO_TICKS(5000));
-        }
 
 
-	} // end while
 
+	 }// end while
 
 
 }
@@ -239,14 +240,12 @@ void task_primary(void *pvParameters)
 
 
 #if CONFIG_SECONDARY
-void task_secondary(void *pvParameters)
+void task_secondary()
 {
 
-        if (xSemaphoreTake(dataMutex, portMAX_DELAY))
-        {
 			ESP_LOGI(pcTaskGetName(NULL), "Start");
 			uint8_t buf[256]; // Maximum Payload size of SX1276/77/78/79 is 255
-			while(1) {
+
 				lora_receive(); // put into receive mode
 				if(lora_received())
 				{
@@ -293,14 +292,16 @@ void task_secondary(void *pvParameters)
 					}
 					vTaskDelay(1);
 					lora_send_packet(buf, rxLen);
-                    xSemaphoreGive(dataMutex);
 					ESP_LOGI(pcTaskGetName(NULL), "%d byte packet sent back...", rxLen);
+                    // xSemaphoreGive(dataMutex);
+
 					printf("\n");
 				}
 				vTaskDelay(1); // Avoid WatchDog alerts
-			}
 
-        }
+
+
+
 }
 
 
@@ -309,7 +310,10 @@ void task_secondary(void *pvParameters)
 
 void oled_display()
 {
-     if (xSemaphoreTake(dataMutex, portMAX_DELAY)) {
+
+
+
+
  	SSD1306_t dev;
 	int center, top, bottom;
 	// char lineChar[20];
@@ -358,15 +362,15 @@ void oled_display()
 	top = 2;
 	center = 3;
 	bottom = 8;
-	ssd1306_display_text(&dev, 0, &module_data.rssi, 14, false);
+	ssd1306_display_text(&dev, 0,  &module_data.rssi, 14, false);
 	ssd1306_display_text(&dev, 1, &module_data.snr, 16, false);
 	ssd1306_display_text(&dev, 2, &module_data.count_lost_packet,16, false);
 	ssd1306_display_text(&dev, 3, &module_data.SER, 13, false);
-	// ssd1306_display_text(&dev, 4, &TIME_STAMP, 14, false);
-    xSemaphoreGive(dataMutex);
-	ssd1306_display_text(&dev, 5, "ABCDEFGHIJKLMNOP", 16, true);
-	ssd1306_display_text(&dev, 6, "abcdefghijklmnop",16, true);
-	ssd1306_display_text(&dev, 7, "Hello World!!", 13, true);
+	ssd1306_display_text(&dev, 7, "sasdasdasdasdasd", 14, false);
+	ssd1306_display_text(&dev, 4, "ABCDEFGHIJKLMNOP", 16, true);
+	ssd1306_display_text(&dev, 5, "abcdefghijklmnop",16, true);
+	ssd1306_display_text(&dev, 6, "Hello World!!", 13, true);
+
 #endif // CONFIG_SSD1306_128x64
 
 #if CONFIG_SSD1306_128x32
@@ -381,40 +385,42 @@ void oled_display()
 	ssd1306_display_text(&dev, 3, "Hello World!!", 13, true);
 #endif // CONFIG_SSD1306_128x32
 	// Restart module
+    vTaskDelay(3000 / portTICK_PERIOD_MS);
 	esp_restart();
 
-    }
 
 }
 
 void app_main()
 {
 
-dataMutex = xSemaphoreCreateMutex();
+
+	if (lora_init() == 0)
+	{
+		ESP_LOGE(pcTaskGetName(NULL), "Does not recognize the module");
+
+
+				vTaskDelay(1);
+
+	}
+
 
 #if CONFIG_DS3231
-
     ESP_ERROR_CHECK(i2cdev_init());
-    xTaskCreate(&ds3231, "ds3231", 1024, NULL, 5, NULL);
+    ds3231();
+
 
 #endif
 
 
 #if CONFIG_DS1307
+    ESP_ERROR_CHECK(i2cdev_init());
+       ds1307();
 
-   ESP_ERROR_CHECK(i2cdev_init());
-   xTaskCreate(&ds1307, "ds1307",1024 , NULL, 5, NULL);
 
 #endif
 
-	if (lora_init() == 0)
-	{
-		ESP_LOGE(pcTaskGetName(NULL), "Does not recognize the module");
-			while(1)
-			{
-				vTaskDelay(1);
-			}
-	}
+
 
 
 #if CONFIG_169MHZ
@@ -468,21 +474,20 @@ dataMutex = xSemaphoreCreateMutex();
 
 
 
-
 #if CONFIG_PRIMARY
 
-    xTaskCreate(&task_primary, "PRIMARY", 2048, NULL,7, NULL);
+      task_primary();
 	//	xTaskCreate(&task_primary, "PRIMARY", 1024*3, NULL, 5, NULL);
 #endif
 
 #if CONFIG_SECONDARY
 
-	xTaskCreate(&task_secondary, "SECONDARY", 2048, NULL, 7, NULL);
+	task_secondary();
 
 	//	xTaskCreate(&task_secondary, "SECONDARY", 1024*3, NULL, 5, NULL);
 #endif
 
-    // xTaskCreate(&oled_display, "oled_display", 2048, NULL, 5, NULL );
+    oled_display();
 
 
 }

@@ -1,4 +1,4 @@
-# Install script for directory: /home/intonation/Documents/esp/esp-idf/components/tcp_transport
+# Install script for directory: /home/intonation/esp-idf/components/tcp_transport
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

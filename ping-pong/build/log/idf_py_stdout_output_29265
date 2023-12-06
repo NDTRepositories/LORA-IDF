@@ -1,0 +1,1888 @@
+��30h ( �ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (33) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (35) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (43) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (73) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (88) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (210) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (210) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (222) cpu_start: Pro cpu up.[0m
+[0;32mI (222) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (240) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (240) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (261) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (327) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2888) main: lora packet snr :-0.25 dbm[0m
+[0;32mI (2898) main: lora packet rssi :-164 dbw[0m
+[0;32mI (2898) main: lora packet lost  :0[0m
+[0;32mI (2908) main: count lost packet :0[0m
+[0;32mI (2908) main: symbol_error : 0.00 [0m
+[0;32mI (2908) main: 0 byte packet received:[][0m
+
+ [0;32mI (2928) main: 0 byte packet sent back...[0m
+
+[0;32mI (2938) SSD1306: INTERFACE is i2c[0m
+[0;32mI (2938) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (2938) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (2938) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (2938) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (2998) SSD1306: Panel is 128x64[0m
+[0;32mI (2998) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+2018-04-11 00:52:10
+[0;32mI (1498) main: Frequency is 433MHz[0m
+[0;32mI (1498) main: coding_rate=1[0m
+[0;32mI (1498) main: bandwidth=7[0m
+[0;32mI (1498) main: spreading_factor=7[0m
+[0;32mI (1498) main: Start[0m
+[0;32mI (1498) main: lora packet snr :0.00 dbm[0m
+[0;32mI (1508) main: lora packet rssi :-164 dbw[0m
+[0;32mI (1508) main: lora packet lost  :0[0m
+[0;32mI (1518) main: count lost packet :0[0m
+[0;32mI (1518) main: symbol_error : 0.00 [0m
+[0;32mI (1518) main: 0 byte packet received:[][0m
+
+ [0;32mI (1538) main: 0 byte packet sent back...[0m
+
+[0;32mI (1548) SSD1306: INTERFACE is i2c[0m
+[0;32mI (1548) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (1548) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (1548) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (1548) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (1608) SSD1306: Panel is 128x64[0m
+[0;32mI (1608) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+2018-04-11 00:52:10
+[0;32mI (1298) main: Frequency is 433MHz[0m
+[0;32mI (1298) main: coding_rate=1[0m
+[0;32mI (1298) main: bandwidth=7[0m
+[0;32mI (1298) main: spreading_factor=7[0m
+[0;32mI (1298) main: Start[0m
+[0;32mI (1298) main: lora packet snr :-0.25 dbm[0m
+[0;32mI (1308) main: lora packet rssi :-164 dbw[0m
+[0;32mI (1308) main: lora packet lost  :0[0m
+[0;32mI (1318) main: count lost packet :0[0m
+[0;32mI (1318) main: symbol_error : 0.00 [0m
+[0;32mI (1318) main: 0 byte packet received:[][0m
+
+ [0;32mI (1338) main: 0 byte packet sent back...[0m
+
+[0;32mI (1348) SSD1306: INTERFACE is i2c[0m
+[0;32mI (1348) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (1348) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (1348) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (1348) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (1408) SSD1306: Panel is 128x64[0m
+[0;32mI (1408) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2898) SSD1306: INTERFACE is i2c[0m
+[0;32mI (2898) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (2898) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (2898) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (2908) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (2968) SSD1306: Panel is 128x64[0m
+[0;32mI (2968) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+2018-04-11 00:52:10
+[0;32mI (1318) main: Frequency is 433MHz[0m
+[0;32mI (1318) main: coding_rate=1[0m
+[0;32mI (1318) main: bandwidth=7[0m
+[0;32mI (1318) main: spreading_factor=7[0m
+[0;32mI (1318) main: Start[0m
+[0;32mI (1318) main: lora packet snr :0.00 dbm[0m
+[0;32mI (1328) main: lora packet rssi :-164 dbw[0m
+[0;32mI (1328) main: lora packet lost  :0[0m
+[0;32mI (1338) main: count lost packet :0[0m
+[0;32mI (1338) main: symbol_error : 0.00 [0m
+[0;32mI (1338) main: 0 byte packet received:[][0m
+
+ [0;32mI (1358) main: 0 byte packet sent back...[0m
+
+[0;32mI (1368) SSD1306: INTERFACE is i2c[0m
+[0;32mI (1368) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (1368) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (1368) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (1368) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (1428) SSD1306: Panel is 128x64[0m
+[0;32mI (1428) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2888) main: lora packet snr :-0.25 dbm[0m
+[0;32mI (2898) main: lora packet rssi :91 dbw[0m
+[0;32mI (2898) main: lora packet lost  :0[0m
+[0;32mI (2908) main: count lost packet :0[0m
+[0;32mI (2908) main: symbol_error : 0.00 [0m
+[0;32mI (2908) main: 0 byte packet received:[][0m
+
+ [0;31mE (3108) LORA: lora_send_packet Fail[0m
+[0;32mI (3108) main: 0 byte packet sent back...[0m
+
+[0;32mI (3118) SSD1306: INTERFACE is i2c[0m
+[0;32mI (3118) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (3118) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (3118) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (3118) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (3178) SSD1306: Panel is 128x64[0m
+[0;32mI (3178) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2898) SSD1306: INTERFACE is i2c[0m
+[0;32mI (2898) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (2898) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (2898) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (2908) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (2968) SSD1306: Panel is 128x64[0m
+[0;32mI (2968) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2898) SSD1306: INTERFACE is i2c[0m
+[0;32mI (2898) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (2898) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (2898) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (2908) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (2968) SSD1306: Panel is 128x64[0m
+[0;32mI (2968) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2898) SSD1306: INTERFACE is i2c[0m
+[0;32mI (2898) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (2898) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (2898) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (2908) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (2968) SSD1306: Panel is 128x64[0m
+[0;32mI (2968) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2898) SSD1306: INTERFACE is i2c[0m
+[0;32mI (2898) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (2898) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (2898) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (2908) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (2968) SSD1306: Panel is 128x64[0m
+[0;32mI (2968) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2898) SSD1306: INTERFACE is i2c[0m
+[0;32mI (2898) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (2898) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (2898) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (2908) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (2968) SSD1306: Panel is 128x64[0m
+[0;32mI (2968) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2888) main: lora packet snr :-0.25 dbm[0m
+[0;32mI (2898) main: lora packet rssi :-164 dbw[0m
+[0;32mI (2898) main: lora packet lost  :0[0m
+[0;32mI (2908) main: count lost packet :0[0m
+[0;32mI (2908) main: symbol_error : 0.00 [0m
+[0;32mI (2908) main: 0 byte packet received:[][0m
+
+ [0;31mE (3108) LORA: lora_send_packet Fail[0m
+[0;32mI (3108) main: 0 byte packet sent back...[0m
+
+[0;32mI (3118) SSD1306: INTERFACE is i2c[0m
+[0;32mI (3118) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (3118) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (3118) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (3118) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (3178) SSD1306: Panel is 128x64[0m
+[0;32mI (3178) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2888) main: lora packet snr :-0.25 dbm[0m
+[0;32mI (2898) main: lora packet rssi :-164 dbw[0m
+[0;32mI (2898) main: lora packet lost  :0[0m
+[0;32mI (2908) main: count lost packet :0[0m
+[0;32mI (2908) main: symbol_error : 0.00 [0m
+[0;32mI (2908) main: 0 byte packet received:[][0m
+
+ [0;31mE (3108) LORA: lora_send_packet Fail[0m
+[0;32mI (3108) main: 0 byte packet sent back...[0m
+
+[0;32mI (3118) SSD1306: INTERFACE is i2c[0m
+[0;32mI (3118) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (3118) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (3118) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (3118) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (3178) SSD1306: Panel is 128x64[0m
+[0;32mI (3178) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2888) main: lora packet snr :-0.25 dbm[0m
+[0;32mI (2898) main: lora packet rssi :91 dbw[0m
+[0;32mI (2898) main: lora packet lost  :0[0m
+[0;32mI (2908) main: count lost packet :0[0m
+[0;32mI (2908) main: symbol_error : 0.00 [0m
+[0;32mI (2908) main: 0 byte packet received:[][0m
+
+ [0;31mE (3108) LORA: lora_send_packet Fail[0m
+[0;32mI (3108) main: 0 byte packet sent back...[0m
+
+[0;32mI (3118) SSD1306: INTERFACE is i2c[0m
+[0;32mI (3118) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (3118) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (3118) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (3118) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (3178) SSD1306: Panel is 128x64[0m
+[0;32mI (3178) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+2018-04-11 00:52:10
+[0;32mI (898) main: Frequency is 433MHz[0m
+[0;32mI (898) main: coding_rate=1[0m
+[0;32mI (898) main: bandwidth=7[0m
+[0;32mI (898) main: spreading_factor=7[0m
+[0;32mI (898) main: Start[0m
+[0;32mI (898) main: lora packet snr :-0.25 dbm[0m
+[0;32mI (908) main: lora packet rssi :-164 dbw[0m
+[0;32mI (908) main: lora packet lost  :0[0m
+[0;32mI (908) main: count lost packet :0[0m
+[0;32mI (918) main: symbol_error : 0.00 [0m
+[0;32mI (918) main: 0 byte packet received:[][0m
+
+ [0;31mE (1118) LORA: lora_send_packet Fail[0m
+[0;32mI (1118) main: 0 byte packet sent back...[0m
+
+[0;32mI (1128) SSD1306: INTERFACE is i2c[0m
+[0;32mI (1128) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (1128) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (1128) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (1128) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (1188) SSD1306: Panel is 128x64[0m
+[0;32mI (1188) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2898) SSD1306: INTERFACE is i2c[0m
+[0;32mI (2898) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (2898) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (2898) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (2908) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (2968) SSD1306: Panel is 128x64[0m
+[0;32mI (2968) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2898) SSD1306: INTERFACE is i2c[0m
+[0;32mI (2898) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (2898) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (2898) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (2908) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (2968) SSD1306: Panel is 128x64[0m
+[0;32mI (2968) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2888) main: lora packet snr :-0.25 dbm[0m
+[0;32mI (2898) main: lora packet rssi :91 dbw[0m
+[0;32mI (2898) main: lora packet lost  :0[0m
+[0;32mI (2908) main: count lost packet :0[0m
+[0;32mI (2908) main: symbol_error : 0.00 [0m
+[0;32mI (2908) main: 0 byte packet received:[][0m
+
+ [0;31mE (3108) LORA: lora_send_packet Fail[0m
+[0;32mI (3108) main: 0 byte packet sent back...[0m
+
+[0;32mI (3118) SSD1306: INTERFACE is i2c[0m
+[0;32mI (3118) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (3118) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (3118) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (3118) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (3178) SSD1306: Panel is 128x64[0m
+[0;32mI (3178) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2898) SSD1306: INTERFACE is i2c[0m
+[0;32mI (2898) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (2898) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (2898) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (2908) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (2968) SSD1306: Panel is 128x64[0m
+[0;32mI (2968) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2898) SSD1306: INTERFACE is i2c[0m
+[0;32mI (2898) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (2898) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (2898) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (2908) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (2968) SSD1306: Panel is 128x64[0m
+[0;32mI (2968) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2888) main: lora packet snr :-0.25 dbm[0m
+[0;32mI (2898) main: lora packet rssi :91 dbw[0m
+[0;32mI (2898) main: lora packet lost  :0[0m
+[0;32mI (2908) main: count lost packet :0[0m
+[0;32mI (2908) main: symbol_error : 0.00 [0m
+[0;32mI (2908) main: 0 byte packet received:[][0m
+
+ [0;31mE (3108) LORA: lora_send_packet Fail[0m
+[0;32mI (3108) main: 0 byte packet sent back...[0m
+
+[0;32mI (3118) SSD1306: INTERFACE is i2c[0m
+[0;32mI (3118) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (3118) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (3118) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (3118) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (3178) SSD1306: Panel is 128x64[0m
+[0;32mI (3178) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2898) SSD1306: INTERFACE is i2c[0m
+[0;32mI (2898) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (2898) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (2898) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (2908) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (2968) SSD1306: Panel is 128x64[0m
+[0;32mI (2968) SSD1306: OLED configured successfully[0m
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7132
+ho 0 tail 12 room 4
+load:0x40078000,len:15672
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (32) boot: ESP-IDF v5.2-dev-811-gc212305646 2nd stage bootloader[0m
+[0;32mI (32) boot: compile time Dec  6 2023 11:58:56[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (39) boot: chip revision: v0.0[0m
+[0;32mI (42) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (47) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (52) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (56) boot: Enabling RNG early entropy source...[0m
+[0;32mI (62) boot: Partition Table:[0m
+[0;32mI (65) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (80) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (87) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c7e8h ( 51176) map[0m
+[0;32mI (126) esp_image: segment 1: paddr=0001c810 vaddr=3ffb0000 size=0269ch (  9884) load[0m
+[0;32mI (130) esp_image: segment 2: paddr=0001eeb4 vaddr=40080000 size=01164h (  4452) load[0m
+[0;32mI (134) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1a014h (106516) map[0m
+[0;32mI (179) esp_image: segment 4: paddr=0003a03c vaddr=40081164 size=0d830h ( 55344) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (221) cpu_start: Multicore app[0m
+[0;32mI (221) cpu_start: Pro cpu up.[0m
+[0;32mI (221) cpu_start: Starting app cpu, entry point is 0x400811e4[0m
+[0;32mI (208) cpu_start: App cpu up.[0m
+[0;32mI (239) cpu_start: Pro cpu start user code[0m
+[0;32mI (239) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (239) cpu_start: Application information:[0m
+[0;32mI (244) cpu_start: Project name:     lora[0m
+[0;32mI (249) cpu_start: App version:      f73173a-dirty[0m
+[0;32mI (254) cpu_start: Compile time:     Dec  6 2023 11:58:54[0m
+[0;32mI (260) cpu_start: ELF file SHA256:  cb179e91b...[0m
+[0;32mI (266) cpu_start: ESP-IDF:          v5.2-dev-811-gc212305646[0m
+[0;32mI (272) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (277) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (282) cpu_start: Chip rev:         v0.0[0m
+[0;32mI (287) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (294) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (300) heap_init: At 3FFB2FB8 len 0002D048 (180 KiB): DRAM[0m
+[0;32mI (306) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (312) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (319) heap_init: At 4008E994 len 0001166C (69 KiB): IRAM[0m
+[0;32mI (326) spi_flash: detected chip: gd[0m
+[0;32mI (329) spi_flash: flash io: dio[0m
+[0;32mI (334) app_start: Starting scheduler on CPU0[0m
+[0;32mI (338) app_start: Starting scheduler on CPU1[0m
+[0;32mI (338) main_task: Started on CPU0[0m
+[0;32mI (348) main_task: Calling app_main()[0m
+[0;32mI (348) gpio: GPIO[16]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (358) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;31mE (2378) main: Does not recognize the module[0m
+2018-04-11 00:52:10
+[0;32mI (2888) main: Frequency is 433MHz[0m
+[0;32mI (2888) main: coding_rate=1[0m
+[0;32mI (2888) main: bandwidth=7[0m
+[0;32mI (2888) main: spreading_factor=7[0m
+[0;32mI (2888) main: Start[0m
+[0;32mI (2888) main: lora packet snr :-0.25 dbm[0m
+[0;32mI (2898) main: lora packet rssi :-164 dbw[0m
+[0;32mI (2898) main: lora packet lost  :0[0m
+[0;32mI (2908) main: count lost packet :0[0m
+[0;32mI (2908) main: symbol_error : 0.00 [0m
+[0;32mI (2908) main: 0 byte packet received:[][0m
+
+ [0;31mE (3108) LORA: lora_send_packet Fail[0m
+[0;32mI (3108) main: 0 byte packet sent back...[0m
+
+[0;32mI (3118) SSD1306: INTERFACE is i2c[0m
+[0;32mI (3118) SSD1306: CONFIG_SDA_GPIO=32[0m
+[0;32mI (3118) SSD1306: CONFIG_SCL_GPIO=33[0m
+[0;32mI (3118) SSD1306: CONFIG_RESET_GPIO=15[0m
+[0;32mI (3118) gpio: GPIO[15]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (3178) SSD1306: Panel is 128x64[0m
+[0;32mI (3178) SSD1306: OLED configured successfully[0m
