@@ -7,11 +7,28 @@
 #include <inttypes.h>
 #include <string.h>
 #include <ctype.h>
-
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "freertos/semphr.h"
 #include "esp_log.h"
+#include "esp_system.h"
+#include "time.h"
+#include "sys/time.h"
+#include "freertos/semphr.h"
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include "esp_timer.h"
+#include "esp_log.h"
+#include "esp_sleep.h"
+#include "sdkconfig.h"
+#include "lora.h"
+#include "ssd1306.h"
+#include "font.h"
+#include "data.h"
+
+SemaphoreHandle_t mutex;
+
+
 
 #if CONFIG_DS1307
 #include "ds1307.h"
@@ -21,10 +38,6 @@
 #include "ds3231.h"
 #endif
 
-#include "lora.h"
-#include "ssd1306.h"
-#include "font8x8_basic.h"
-#include "data.h"
 
 #define tag "SSD1306"
 
@@ -34,14 +47,15 @@ float SAMPLES = 30;
 
 
 volatile char TIME_STAMP[50];
-volatile Module_Data module_data;
+
+static volatile Module_Data module_data;
 
 
 
 #if CONFIG_DS1307
 
 
-void ds1307()
+void ds1307(void *pvParameters)
 {
 
 			i2c_dev_t dev;
@@ -62,19 +76,19 @@ void ds1307()
 			ESP_ERROR_CHECK(ds1307_set_time(&dev, &time));
 
 
-					ds1307_get_time(&dev, &time);
+			ds1307_get_time(&dev, &time);
 
 
 
-					printf("%04d-%02d-%02d %02d:%02d:%02d\n", time.tm_year + 1900 /*Add 1900 for better readability*/, time.tm_mon + 1,
+			printf("%04d-%02d-%02d %02d:%02d:%02d\n", time.tm_year + 1900 /*Add 1900 for better readability*/, time.tm_mon + 1,
 						time.tm_mday, time.tm_hour, time.tm_min, time.tm_sec);
 
 
                  	vTaskDelay(pdMS_TO_TICKS(500));
 
+         
 
-
-
+		vTaskDelete(NULL);
 
 }
 #endif
@@ -83,48 +97,54 @@ void ds1307()
 
 #if CONFIG_DS3231
 
-void ds3231()
+void ds3231(void *pvParameters)
 {
 
+    i2c_dev_t dev;
+    memset(&dev, 0, sizeof(i2c_dev_t));
+
+    ESP_ERROR_CHECK(ds3231_init_desc(&dev, 0, CONFIG_DS3231_I2C_SDA, CONFIG_DS3231_I2C_SCL));
+
+    // setup datetime: 2016-10-09 13:50:10
+    struct tm time = {
+        .tm_year = 116, //since 1900 (2016 - 1900)
+        .tm_mon  = 9,  // 0-based
+        .tm_mday = 9,
+        .tm_hour = 13,
+        .tm_min  = 50,
+        .tm_sec  = 10
+    };
+    ESP_ERROR_CHECK(ds3231_set_time(&dev, &time));
+
+    while (1)
+    {
+        float temp;
+
+        vTaskDelay(pdMS_TO_TICKS(250));
+
+        if (ds3231_get_temp_float(&dev, &temp) != ESP_OK)
+        {
+            printf("Could not get temperature\n");
+            continue;
+        }
+
+        if (ds3231_get_time(&dev, &time) != ESP_OK)
+        {
+            printf("Could not get time\n");
+            continue;
+        }
+
+        /* float is used in printf(). you need non-default configuration in
+         * sdkconfig for ESP8266, which is enabled by default for this
+         * example. see sdkconfig.defaults.esp8266
+         */
+        printf("%04d-%02d-%02d %02d:%02d:%02d, %.2f deg Cel\n", time.tm_year + 1900 /*Add 1900 for better readability*/, time.tm_mon + 1,
+            time.tm_mday, time.tm_hour, time.tm_min, time.tm_sec, temp);
+    }
 
 
-        i2c_dev_t dev;
-        memset(&dev, 0, sizeof(i2c_dev_t));
 
-        ESP_ERROR_CHECK(ds3231_init_desc(&dev, 0, CONFIG_DS3231_I2C_SDA, CONFIG_DS3231_I2C_SCL));
-
-            // setup datetime: 2016-10-09 13:50:10
-               struct tm time =
-				{
-					.tm_year = 116, //since 1900 (2016 - 1900)
-					.tm_mon  = 9,  // 0-based
-					.tm_mday = 9,
-					.tm_hour = 13,
-					.tm_min  = 50,
-					.tm_sec  = 10
-				};
-        ESP_ERROR_CHECK(ds3231_set_time(&dev, &time));
-
-
-					float temp;
-
-					vTaskDelay(pdMS_TO_TICKS(250));
-
-					if (ds3231_get_temp_float(&dev, &temp) != ESP_OK)
-						{
-							printf("Could not get temperature\n");
-						}
-
-					if (ds3231_get_time(&dev, &time) != ESP_OK)
-						{
-							printf("Could not get time\n");
-						}
-
-
-
-
-		        printf("%04d-%02d-%02d %02d:%02d:%02d, %.2f deg Cel\n", time.tm_year + 1900 /*Add 1900 for better readability*/, time.tm_mon + 1,
-							time.tm_mday, time.tm_hour, time.tm_min, time.tm_sec, temp);
+			vTaskDelete(NULL);
 
 }
 
@@ -137,261 +157,172 @@ void ds3231()
 #if CONFIG_PRIMARY
 
 #define TIMEOUT 100
-
-
-void task_primary()
+void task_primary(void *pvParameters)
+// void task_primary()
+{   
+	while(1)
 {
+    if(xSemaphoreTake(mutex, portMAX_DELAY) == pdTRUE)
+	
+	{
+	ESP_LOGI(pcTaskGetName(NULL), "Start");
+	uint8_t buf[256]; // Maximum Payload size of SX1276/77/78/79 is 255
+	while(1) 
+	{
+		TickType_t nowTick = xTaskGetTickCount();
+		int send_len = sprintf((char *)buf,"Hello World!! %"PRIu32, nowTick);
 
-
-
-//
-
-		ESP_LOGI(pcTaskGetName(NULL), "Start");
-		uint8_t buf[256]; // Maximum Payload size of SX1276/77/78/79 is 255
-        while(1)
-        {
-			TickType_t nowTick = xTaskGetTickCount();
-			int send_len = sprintf((char *)buf,"Hello World!! %"PRIu32, nowTick);
-
-		#if 0
-			// Maximum Payload size of SX1276/77/78/79 is 255
-			memset(&buf[send_len], 0x20, 255-send_len);
-			send_len = 255;
-		#endif
-
-
-			lora_send_packet(buf, send_len);
-			ESP_LOGI(pcTaskGetName(NULL), "%d byte packet sent:[%.*s]", send_len, send_len, buf);
-
-			count_lost_packet =0;
-			symbol_error = 0 ;
-            bool waiting = true;
-			TickType_t startTick = xTaskGetTickCount();
-
-            while(waiting)
-            {
-
-				lora_receive(); // put into receive mode
-				if(lora_received())
-				{
-					int rxLen = lora_receive_packet(buf, sizeof(buf));
-					TickType_t currentTick = xTaskGetTickCount();
-					TickType_t diffTick = currentTick - startTick;
-
-
-					if(lora_packet_lost()  >=  1 )
+#if 0
+		// Maximum Payload size of SX1276/77/78/79 is 255
+		memset(&buf[send_len], 0x20, 255-send_len);
+		send_len = 255;
+#endif
+		lora_send_packet(buf, send_len);
+		ESP_LOGI(pcTaskGetName(NULL), "%d byte packet sent:[%.*s]", send_len, send_len, buf);
+		bool waiting = true;
+		TickType_t startTick = xTaskGetTickCount();
+		while(waiting) {
+			lora_receive(); // put into receive mode
+			if(lora_received()) {
+				int rxLen = lora_receive_packet(buf, sizeof(buf));
+				TickType_t currentTick = xTaskGetTickCount();
+				TickType_t diffTick = currentTick - startTick;
+					if(lora_packet_lost()  >  30 )
 					{
-						if (count_lost_packet > 30)
-						{
-							count_lost_packet = 1;
-						}
-
+						
 						count_lost_packet++;
 
 					}
-
-					symbol_error = count_lost_packet /  SAMPLES;
-
+					symbol_error = (float)lora_packet_lost() /  SAMPLES;
+					if (symbol_error  > 1)
+					{
+						symbol_error = 0;
+					}
 				    module_data.rssi= lora_packet_rssi();
 					module_data.count_lost_packet=count_lost_packet;
 					module_data.SER=symbol_error;
 					module_data.snr=lora_packet_snr();
-
-
-					ESP_LOGI(pcTaskGetName(NULL), "%d byte packet received:[%.*s]", rxLen, rxLen, buf);
-					ESP_LOGI(pcTaskGetName(NULL), "lora packet snr :%.2lf dbm", lora_packet_snr());
-					ESP_LOGI(pcTaskGetName(NULL), "lora packet rssi :%d dbw", lora_packet_rssi());
-					ESP_LOGI(pcTaskGetName(NULL), "lora packet lost  :%d", lora_packet_lost());
-					ESP_LOGI(pcTaskGetName(NULL), "count lost packet :%d", count_lost_packet);
-					ESP_LOGI(pcTaskGetName(NULL), "symbol_error : %.2lf ", symbol_error);
-					ESP_LOGI(pcTaskGetName(NULL), "Response time is %"PRIu32" MillSecs", diffTick * portTICK_PERIOD_MS);
-                    waiting = false;
-
-					printf(" \n ");
-				}
-				TickType_t currentTick = xTaskGetTickCount();
-				TickType_t diffTick = currentTick - startTick;
-				ESP_LOGD(pcTaskGetName(NULL), "diffTick=%"PRIu32, diffTick);
-
-
-
-				if (diffTick > TIMEOUT) {
-					ESP_LOGW(pcTaskGetName(NULL), "Response timeout");
-                    waiting = false;
-					printf(" \n ");
-
-				}
-
-
-
-				vTaskDelay(1); // Avoid WatchDog alerts
-			 }// end waiting
-
-			vTaskDelay(pdMS_TO_TICKS(5000));
-
-
-
-	 }// end while
-
-
+					xSemaphoreGive(mutex);
+				ESP_LOGI(pcTaskGetName(NULL), "%d byte packet received:[%.*s]", rxLen, rxLen, buf);
+				ESP_LOGI(pcTaskGetName(NULL), "lora packet snr :%.2lf dbm", lora_packet_snr());
+				ESP_LOGI(pcTaskGetName(NULL), "lora packet rssi :%d dbm", lora_packet_rssi());
+				ESP_LOGI(pcTaskGetName(NULL), "lora packet lost  :%d", lora_packet_lost());
+				ESP_LOGI(pcTaskGetName(NULL), "count lost packet sample :%d", count_lost_packet);
+				ESP_LOGI(pcTaskGetName(NULL), "symbol_error : %.2lf ", symbol_error);
+				ESP_LOGI(pcTaskGetName(NULL), "Response time is %"PRIu32" MillSecs", diffTick * portTICK_PERIOD_MS);
+				waiting = false;
+			}
+			TickType_t currentTick = xTaskGetTickCount();
+			TickType_t diffTick = currentTick - startTick;
+			ESP_LOGD(pcTaskGetName(NULL), "diffTick=%"PRIu32, diffTick);
+			if (diffTick > TIMEOUT) {
+				ESP_LOGW(pcTaskGetName(NULL), "Response timeout");
+				waiting = false;
+			}
+			vTaskDelay(1); // Avoid WatchDog alerts
+		} // end waiting
+		vTaskDelay(pdMS_TO_TICKS(5000));
+	} // end while
+	}
+}
 }
 #endif // CONFIG_PRIMARY
 
 
 
 #if CONFIG_SECONDARY
-void task_secondary()
-{
-
-			ESP_LOGI(pcTaskGetName(NULL), "Start");
-			uint8_t buf[256]; // Maximum Payload size of SX1276/77/78/79 is 255
-            while(1)
-            {
-				lora_receive(); // put into receive mode
-				if(lora_received())
-				{
-
-
-						if(lora_packet_lost()  >=  1 )
+void task_secondary(void *pvParameters)
+// void task_secondary()
+{  
+	
+	while(1)
+	 {
+    if(xSemaphoreTake(mutex, portMAX_DELAY) == pdPASS)
+	{
+	ESP_LOGI(pcTaskGetName(NULL), "Start");
+	uint8_t buf[256]; // Maximum Payload size of SX1276/77/78/79 is 255
+	while(1) {
+		lora_receive(); // put into receive mode
+		if(lora_received()) {
+        int rxLen = lora_receive_packet(buf, sizeof(buf));
+					
+						
+						if (lora_packet_lost() > 30)
 						{
-							if (count_lost_packet > 30)
-							{
-								count_lost_packet = 1;
-							}
-
-							count_lost_packet++;
-
+						   count_lost_packet ++;
 						}
-
-						symbol_error = count_lost_packet / SAMPLES;
-
-					int rxLen = lora_receive_packet(buf, sizeof(buf));
-
+							
+						
+					symbol_error = (float)lora_packet_lost() / SAMPLES;
+                    if (symbol_error  > 1)
+					{
+						symbol_error = 0;
+					}
 					module_data.rssi = lora_packet_rssi();
 					module_data.count_lost_packet = count_lost_packet;
 					module_data.SER = symbol_error;
-					module_data.snr = lora_packet_snr();
-
-
-
-					ESP_LOGI(pcTaskGetName(NULL), "lora packet snr :%.2lf dbm", lora_packet_snr());
-					ESP_LOGI(pcTaskGetName(NULL), "lora packet rssi :%d dbw", lora_packet_rssi());
-					ESP_LOGI(pcTaskGetName(NULL), "lora packet lost  :%d", lora_packet_lost());
-					ESP_LOGI(pcTaskGetName(NULL), "count lost packet :%d", count_lost_packet);
-					ESP_LOGI(pcTaskGetName(NULL), "symbol_error : %.2lf ", symbol_error);
-					ESP_LOGI(pcTaskGetName(NULL), "%d byte packet received:[%.*s]", rxLen, rxLen, buf);
-
-
-					printf("\n ");
-					for (int i=0;i<rxLen;i++)
-					{
-						if (isupper(buf[i])) {
-							buf[i] = tolower(buf[i]);
-						} else {
-							buf[i] = toupper(buf[i]);
-						}
-					}
-					vTaskDelay(1);
-					lora_send_packet(buf, rxLen);
-					ESP_LOGI(pcTaskGetName(NULL), "%d byte packet sent back...", rxLen);
-                    // xSemaphoreGive(dataMutex);
-
-					printf("\n");
+					module_data.snr = lora_packet_snr(); 
+			xSemaphoreGive(mutex);
+			ESP_LOGI(pcTaskGetName(NULL), "%d byte packet received:[%.*s]", rxLen, rxLen, buf);
+			ESP_LOGI(pcTaskGetName(NULL), "lora packet snr :%.2lf dbm", lora_packet_snr());
+			ESP_LOGI(pcTaskGetName(NULL), "lora packet rssi :%d dbm", lora_packet_rssi());
+			ESP_LOGI(pcTaskGetName(NULL), "lora packet lost  :%d", lora_packet_lost());
+			ESP_LOGI(pcTaskGetName(NULL), "count lost packet sample :%d", count_lost_packet);
+			ESP_LOGI(pcTaskGetName(NULL), "symbol_error : %.2lf ", symbol_error);
+			for (int i=0;i<rxLen;i++) {
+				if (isupper(buf[i])) {
+					buf[i] = tolower(buf[i]);
+				} else {
+					buf[i] = toupper(buf[i]);
 				}
-				vTaskDelay(1); // Avoid WatchDog alerts
-
-        }
+			}
+			vTaskDelay(1);
+			lora_send_packet(buf, rxLen);
+			ESP_LOGI(pcTaskGetName(NULL), "%d byte packet sent back...", rxLen);
+		}
+		vTaskDelay(1); // Avoid WatchDog alerts
+	}
+	}
 }
-
+	
+}
 #endif // CONFIG_SECONDARY
 
+void task_oled(void *pvParameters)
+{ 
 
-void oled_display()
-{
+   
+  if(xSemaphoreTake(mutex, portMAX_DELAY) == pdTRUE)
+  {         
 
+		    ESP_LOGI(pcTaskGetName(NULL), "Start");
+    		char str[15];
+			SSD1306_Clear();
+			SSD1306_GotoXY(0, 0);
+			sprintf(str, "RSSI:%.2d", module_data.rssi);
+			SSD1306_Puts(str, &Font_7x10, 1);
+			SSD1306_GotoXY(0, 10);
+			sprintf(str, "LOST :%.2d", module_data.count_lost_packet);
+			SSD1306_Puts(str, &Font_7x10, 1);
+			SSD1306_GotoXY(0, 20);
+			sprintf(str, "SER :%.2f", module_data.SER);
+			SSD1306_Puts(str, &Font_7x10, 1);
+			SSD1306_GotoXY(0, 30);
+			sprintf(str, "SNR :%.2f", module_data.snr);
+			SSD1306_Puts(str, &Font_7x10, 1);
+			SSD1306_GotoXY(0, 40);
+			SSD1306_UpdateScreen();
 
-
-
- 	SSD1306_t dev;
-	int center, top, bottom;
-	// char lineChar[20];
-
-	ESP_ERROR_CHECK(i2cdev_init());
-
-
-#if CONFIG_I2C_INTERFACE
-	ESP_LOGI(tag, "INTERFACE is i2c");
-	ESP_LOGI(tag, "CONFIG_SDA_GPIO=%d",CONFIG_SDA_GPIO);
-	ESP_LOGI(tag, "CONFIG_SCL_GPIO=%d",CONFIG_SCL_GPIO);
-	ESP_LOGI(tag, "CONFIG_RESET_GPIO=%d",CONFIG_RESET_GPIO);
-	i2c_master_init(&dev, CONFIG_SDA_GPIO, CONFIG_SCL_GPIO, CONFIG_RESET_GPIO);
-#endif // CONFIG_I2C_INTERFACE
-
-#if CONFIG_SPI_INTERFACE
-	ESP_LOGI(tag, "INTERFACE is SPI");
-	ESP_LOGI(tag, "CONFIG_MOSI_GPIO=%d",CONFIG_MOSI_GPIO);
-	ESP_LOGI(tag, "CONFIG_SCLK_GPIO=%d",CONFIG_SCLK_GPIO);
-	ESP_LOGI(tag, "CONFIG_CS_GPIO=%d",CONFIG_CS_GPIO);
-	ESP_LOGI(tag, "CONFIG_DC_GPIO=%d",CONFIG_DC_GPIO);
-	ESP_LOGI(tag, "CONFIG_RESET_GPIO=%d",CONFIG_RESET_GPIO);
-	spi_master_init(&dev, CONFIG_MOSI_GPIO, CONFIG_SCLK_GPIO, CONFIG_CS_GPIO, CONFIG_DC_GPIO, CONFIG_RESET_GPIO);
-#endif // CONFIG_SPI_INTERFACE
-
-#if CONFIG_FLIP
-	dev._flip = true;
-	ESP_LOGW(tag, "Flip upside down");
-#endif
-
-#if CONFIG_SSD1306_128x64
-	ESP_LOGI(tag, "Panel is 128x64");
-	ssd1306_init(&dev, 128, 64);
-#endif // CONFIG_SSD1306_128x64
-#if CONFIG_SSD1306_128x32
-	ESP_LOGI(tag, "Panel is 128x32");
-	ssd1306_init(&dev, 128, 32);
-#endif // CONFIG_SSD1306_128x32
-
-	// ssd1306_clear_screen(&dev, false);
-	// ssd1306_contrast(&dev, 0xff);
-	// ssd1306_display_text_x3(&dev, 0, "Hello", 5, false);
-	// vTaskDelay(3000 / portTICK_PERIOD_MS);
-
-#if CONFIG_SSD1306_128x64
-	top = 2;
-	center = 3;
-	bottom = 8;
-	ssd1306_display_text(&dev, 0,  &module_data.rssi, 14, false);
-	ssd1306_display_text(&dev, 1, &module_data.snr, 16, false);
-	ssd1306_display_text(&dev, 2, &module_data.count_lost_packet,16, false);
-	ssd1306_display_text(&dev, 3, &module_data.SER, 13, false);
-	ssd1306_display_text(&dev, 7, "sasdasdasdasdasd", 14, false);
-	ssd1306_display_text(&dev, 4, "ABCDEFGHIJKLMNOP", 16, true);
-	ssd1306_display_text(&dev, 5, "abcdefghijklmnop",16, true);
-	ssd1306_display_text(&dev, 6, "Hello World!!", 13, true);
-
-#endif // CONFIG_SSD1306_128x64
-
-#if CONFIG_SSD1306_128x32
-	top = 1;
-	center = 1;
-	bottom = 4;
-	ssd1306_display_text(&dev, 0, "SSD1306 128x32", 14, false);
-	ssd1306_display_text(&dev, 1, "Hello World!!", 13, false);
-	//ssd1306_clear_line(&dev, 2, true);
-	//ssd1306_clear_line(&dev, 3, true);
-	ssd1306_display_text(&dev, 2, "SSD1306 128x32", 14, true);
-	ssd1306_display_text(&dev, 3, "Hello World!!", 13, true);
-#endif // CONFIG_SSD1306_128x32
-	// Restart module
-    vTaskDelay(3000 / portTICK_PERIOD_MS);
-	esp_restart();
+  }
 
 
+    vTaskDelete(NULL);
 }
-
 void app_main()
-{
-
+{  
+    
+   SSD1306_Init();
+   mutex = xSemaphoreCreateMutex();
 
 	if (lora_init() == 0)
 	{
@@ -402,23 +333,28 @@ void app_main()
 
 	}
 
-
-#if CONFIG_DS3231
-    ESP_ERROR_CHECK(i2cdev_init());
-    ds3231();
-
-
-#endif
-
-
-#if CONFIG_DS1307
-    ESP_ERROR_CHECK(i2cdev_init());
-       ds1307();
-
-
-#endif
-
-
+    // Get current time
+    time_t now;
+    time(&now);
+    printf("Current time: %s", ctime(&now));
+    
+    // Get current system time in microseconds
+    uint64_t current_time_us = esp_timer_get_time();
+    printf("Current system time (microseconds): %lld\n", current_time_us);
+    
+    // Delay for 1 second using vTaskDelay
+    vTaskDelay(pdMS_TO_TICKS(1000));
+    
+    // Get current system time using gettimeofday
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    printf("Current system time (seconds): %lld\n", tv.tv_sec);
+    
+    // Get the amount of free heap memory
+    size_t free_heap = esp_get_free_heap_size();
+    printf("Free heap memory: %d bytes\n", free_heap);
+    
+    // Restart the ESP32 system
 
 
 #if CONFIG_169MHZ
@@ -471,21 +407,21 @@ void app_main()
 
 
 
-
 #if CONFIG_PRIMARY
 
-      task_primary();
-	//	xTaskCreate(&task_primary, "PRIMARY", 1024*3, NULL, 5, NULL);
+     
+	xTaskCreatePinnedToCore(&task_primary, "PRIMARY", 1024*16, NULL, 15, NULL,	0);
+		// void task_primary();
 #endif
 
 #if CONFIG_SECONDARY
 
-	task_secondary();
+	// task_secondary();
 
-	//	xTaskCreate(&task_secondary, "SECONDARY", 1024*3, NULL, 5, NULL);
+	xTaskCreatePinnedToCore(&task_secondary, "SECONDARY", 1024*16, NULL, 15, NULL,	0);
 #endif
 
-    oled_display();
+    xTaskCreatePinnedToCore(&task_oled, "OLED", 1024*16, NULL, 10, NULL,1);
 
-
+  
 }

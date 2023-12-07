@@ -9,7 +9,7 @@
 typedef struct
 {
     int rssi;
-    int snr;
+    float snr;
     int count_lost_packet;
     float SER;   //symbol error
 }Module_Data;
