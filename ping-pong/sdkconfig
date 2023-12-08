@@ -309,8 +309,8 @@ CONFIG_PARTITION_TABLE_MD5=y
 #
 # Application Configuration
 #
-CONFIG_PRIMARY=y
-# CONFIG_SECONDARY is not set
+# CONFIG_PRIMARY is not set
+CONFIG_SECONDARY=y
 CONFIG_DS3231=y
 # CONFIG_DS1307 is not set
 # CONFIG_169MHZ is not set

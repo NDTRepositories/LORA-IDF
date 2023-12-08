@@ -29,7 +29,6 @@
 SemaphoreHandle_t mutex;
 
 
-
 #if CONFIG_DS1307
 #include "ds1307.h"
 #endif
@@ -97,9 +96,12 @@ void ds1307(void *pvParameters)
 
 #if CONFIG_DS3231
 
-void ds3231(void *pvParameters)
+void task_ds3231(void *pvParameters)
 {
+    while(1){
 
+	 if(xSemaphoreTake(mutex, portMAX_DELAY) == pdTRUE)
+{
     i2c_dev_t dev;
     memset(&dev, 0, sizeof(i2c_dev_t));
 
@@ -143,8 +145,9 @@ void ds3231(void *pvParameters)
     }
 
 
+	}
 
-			vTaskDelete(NULL);
+	}
 
 }
 
@@ -332,7 +335,6 @@ void app_main()
 				vTaskDelay(1);
 
 	}
-
     // Get current time
     time_t now;
     time(&now);
@@ -405,7 +407,7 @@ void app_main()
 	//int sf = lora_get_spreading_factor();
 	ESP_LOGI(pcTaskGetName(NULL), "spreading_factor=%d", sf);
 
-
+  
 
 #if CONFIG_PRIMARY
 
