@@ -14,4 +14,13 @@ typedef struct
     float SER;   //symbol error
 }Module_Data;
 
+typedef struct
+{ 
+   float Temp_Data;
+   float Do_Data;
+   float Ph_Data;
+   float EC_Data;
+   double time_stamp;
+}Data_Bkres;
+
 #endif

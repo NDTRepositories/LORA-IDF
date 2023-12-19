@@ -148,7 +148,7 @@ menu "SSD1306 Configuration"
 	choice I2C_PORT
 		depends on I2C_INTERFACE
 		prompt "I2C port that controls this bus"
-		default I2C_PORT_1
+		default I2C_PORT_0
 		help
 			Select I2C port that controls this bus.
 		config I2C_PORT_0

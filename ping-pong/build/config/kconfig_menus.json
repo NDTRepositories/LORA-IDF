@@ -4055,36 +4055,6 @@
                 "children": [
                     {
                         "children": [],
-                        "depends_on": "<choice Realtimeclock>",
-                        "help": "As Echo Client.",
-                        "id": "DS3231",
-                        "name": "DS3231",
-                        "range": null,
-                        "title": "ds3231",
-                        "type": "bool"
-                    },
-                    {
-                        "children": [],
-                        "depends_on": "<choice Realtimeclock>",
-                        "help": "As Echo Server.",
-                        "id": "DS1307",
-                        "name": "DS1307",
-                        "range": null,
-                        "title": "ds1307",
-                        "type": "bool"
-                    }
-                ],
-                "depends_on": null,
-                "help": "Select DSxxxx to use.",
-                "id": "application-configuration-config-dsxxxx-to-use",
-                "name": "Realtimeclock",
-                "title": "Config dsxxxx to use",
-                "type": "choice"
-            },
-            {
-                "children": [
-                    {
-                        "children": [],
                         "depends_on": "<choice FREQUENCY>",
                         "help": "Frequency is 169MHz.",
                         "id": "169MHZ",
@@ -4206,62 +4176,6 @@
         "depends_on": null,
         "id": "application-configuration",
         "title": "Application Configuration",
-        "type": "menu"
-    },
-    {
-        "children": [
-            {
-                "children": [],
-                "depends_on": null,
-                "help": "GPIO number for I2C Master clock line.",
-                "id": "DS1307_I2C_SCL",
-                "name": "DS1307_I2C_SCL",
-                "range": null,
-                "title": "SCL GPIO Number",
-                "type": "int"
-            },
-            {
-                "children": [],
-                "depends_on": null,
-                "help": "GPIO number for I2C Master data line.",
-                "id": "DS1307_I2C_SDA",
-                "name": "DS1307_I2C_SDA",
-                "range": null,
-                "title": "SDA GPIO Number",
-                "type": "int"
-            }
-        ],
-        "depends_on": null,
-        "id": "ds1307-configuration",
-        "title": "DS1307 configuration",
-        "type": "menu"
-    },
-    {
-        "children": [
-            {
-                "children": [],
-                "depends_on": null,
-                "help": "GPIO number for I2C Master clock line.",
-                "id": "DS3231_I2C_SCL",
-                "name": "DS3231_I2C_SCL",
-                "range": null,
-                "title": "SCL GPIO Number",
-                "type": "int"
-            },
-            {
-                "children": [],
-                "depends_on": null,
-                "help": "GPIO number for I2C Master data line.",
-                "id": "DS3231_I2C_SDA",
-                "name": "DS3231_I2C_SDA",
-                "range": null,
-                "title": "SDA GPIO Number",
-                "type": "int"
-            }
-        ],
-        "depends_on": null,
-        "id": "ds3231-configuration",
-        "title": "DS3231 configuration",
         "type": "menu"
     },
     {

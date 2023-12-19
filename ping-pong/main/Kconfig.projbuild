@@ -15,24 +15,6 @@ menu "Application Configuration"
 				As Echo Server.
 	endchoice
     
-
-	choice Realtimeclock
-		prompt "Config dsxxxx to use"
-		default DS3231
-		help
-			Select DSxxxx to use.
-		config DS3231
-			bool "ds3231"
-			help
-				As Echo Client.
-		config DS1307
-			bool "ds1307"
-			help
-				As Echo Server.
-	endchoice
-
-
-
 	choice FREQUENCY
 		prompt "Frequency to use"
 		default 433MHZ
