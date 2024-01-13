@@ -30,13 +30,23 @@ SemaphoreHandle_t mutex;
 
 #define tag "SSD1306"
 
-static int count_lost_packet;
 static float symbol_error;
 static float SAMPLES = 50;
 
-
 static volatile Module_Data module_data;
 
+#include <stdio.h>
+
+// void main() {
+//   char buff[100];
+//   int a, b;
+
+//   sprintf(buff, "a = %d, b = %d", 10, 20);
+
+//   sscanf(buff, "a = %d, b = %d", &a, &b);
+
+//   printf("a = %d, b = %d\n", a, b);  // distributes a = 10, b = 20
+// }
 
 #if CONFIG_PRIMARY
 
@@ -57,8 +67,7 @@ void task_primary(void *pvParameters)
 	uint8_t buf[256]; // Maximum Payload size of SX1276/77/78/79 is 255
 	while(1) 
 	{
-		TickType_t nowTick = xTaskGetTickCount();
-		int send_len = sprintf((char *)buf,"TEMP = %.2lf, DO = %.2lf, PH = %.2lf, EC = %.2lf, TIME =%.2lf %"PRIu32,data_bkres.Temp_Data,data_bkres.Do_Data,data_bkres.Ph_Data,data_bkres.EC_Data,data_bkres.time_stamp,nowTick);
+		int send_len = sprintf((char *)buf,"TEMP = %.2lf, DO = %.2lf, PH = %.2lf, EC = %.2lf, TIME =%.2lf ",data_bkres.Temp_Data,data_bkres.Do_Data,data_bkres.Ph_Data,data_bkres.EC_Data,data_bkres.time_stamp);
 
 #if 0
 		// Maximum Payload size of SX1276/77/78/79 is 255
@@ -75,27 +84,21 @@ void task_primary(void *pvParameters)
 				int rxLen = lora_receive_packet(buf, sizeof(buf));
 				TickType_t currentTick = xTaskGetTickCount();
 				TickType_t diffTick = currentTick - startTick;
-					if(lora_packet_lost()  >  50 )
-					{
-						
-						count_lost_packet++;
-
-					}
 					symbol_error = (float)lora_packet_lost() /  SAMPLES;
 					if (symbol_error  > 1)
 					{
 						symbol_error = 0;
 					}
 				    module_data.rssi= lora_packet_rssi();
-					module_data.count_lost_packet=count_lost_packet;
+					module_data.count_lost_packet=lora_packet_lost();
 					module_data.SER=symbol_error;
 					module_data.snr=lora_packet_snr();
+					
 					xSemaphoreGive(mutex);
 				ESP_LOGI(pcTaskGetName(NULL), "%d byte packet received:[%.*s]", rxLen, rxLen, buf);
 				ESP_LOGI(pcTaskGetName(NULL), "lora packet snr :%.2lf dbm", lora_packet_snr());
 				ESP_LOGI(pcTaskGetName(NULL), "lora packet rssi :%d dbm", lora_packet_rssi());
 				ESP_LOGI(pcTaskGetName(NULL), "lora packet lost  :%d", lora_packet_lost());
-				ESP_LOGI(pcTaskGetName(NULL), "count lost packet sample :%d", count_lost_packet);
 				ESP_LOGI(pcTaskGetName(NULL), "symbol_error : %.2lf ", symbol_error);
 				ESP_LOGI(pcTaskGetName(NULL), "Response time is %"PRIu32" MillSecs", diffTick * portTICK_PERIOD_MS);
 				waiting = false;
@@ -134,28 +137,21 @@ void task_secondary(void *pvParameters)
 		{
         int rxLen = lora_receive_packet(buf, sizeof(buf));
 					
-						
-					if (lora_packet_lost() > 50)
-					{
-						   count_lost_packet ++;
-					}
-							
-						
 					symbol_error = (float)lora_packet_lost() / SAMPLES;
                     if (symbol_error  > 1)
 					{
 						symbol_error = 0;
 					}
 					module_data.rssi = lora_packet_rssi();
-					module_data.count_lost_packet = count_lost_packet;
+					module_data.count_lost_packet = lora_packet_lost();
 					module_data.SER = symbol_error;
 					module_data.snr = lora_packet_snr(); 
+
 			xSemaphoreGive(mutex);
 			ESP_LOGI(pcTaskGetName(NULL), "%d byte packet received:[%.*s]", rxLen, rxLen, buf);
 			ESP_LOGI(pcTaskGetName(NULL), "lora packet snr :%.2lf dbm", lora_packet_snr());
 			ESP_LOGI(pcTaskGetName(NULL), "lora packet rssi :%d dbm", lora_packet_rssi());
 			ESP_LOGI(pcTaskGetName(NULL), "lora packet lost  :%d", lora_packet_lost());
-			ESP_LOGI(pcTaskGetName(NULL), "count lost packet sample :%d", count_lost_packet);
 			ESP_LOGI(pcTaskGetName(NULL), "symbol_error : %.2lf ", symbol_error);
 			vTaskDelay(1);
 			lora_send_packet(buf, rxLen);
@@ -178,7 +174,7 @@ void task_oled(void *pvParameters)
   {         
 
 		    ESP_LOGI(pcTaskGetName(NULL), "Start");
-    		char str[15];
+    		char str[19];
 			SSD1306_Clear();
 			SSD1306_GotoXY(0, 0);
 			sprintf(str, "RSSI:%.2d", module_data.rssi);
