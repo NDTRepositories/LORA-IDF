@@ -607,13 +607,6 @@ C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/i2cdev/CMakeFiles/lis
 C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/i2cdev/CMakeFiles/install.dir
 C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/i2cdev/CMakeFiles/install/local.dir
 C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/i2cdev/CMakeFiles/install/strip.dir
-C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/lib_lorawan/CMakeFiles/__idf_lib_lorawan.dir
-C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/lib_lorawan/CMakeFiles/edit_cache.dir
-C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/lib_lorawan/CMakeFiles/rebuild_cache.dir
-C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/lib_lorawan/CMakeFiles/list_install_components.dir
-C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/lib_lorawan/CMakeFiles/install.dir
-C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/lib_lorawan/CMakeFiles/install/local.dir
-C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/lib_lorawan/CMakeFiles/install/strip.dir
 C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/lora/CMakeFiles/__idf_lora.dir
 C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/lora/CMakeFiles/edit_cache.dir
 C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/lora/CMakeFiles/rebuild_cache.dir

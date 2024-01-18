@@ -48,7 +48,7 @@ menu "LoRa Configuration"
 	config RST_GPIO
 		int "RST GPIO"
 		range 0 GPIO_RANGE_MAX
-		default 16 if IDF_TARGET_ESP32
+		default 22 if IDF_TARGET_ESP32
 		default 38 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
 		default  3 # C3 and others
 		help

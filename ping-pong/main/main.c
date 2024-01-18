@@ -25,28 +25,77 @@
 #include "ssd1306.h"
 #include "font.h"
 #include "data.h"
+#include "driver/uart.h"
 
-SemaphoreHandle_t mutex;
-
+#define TXD_PIN (GPIO_NUM_17)
+#define RXD_PIN (GPIO_NUM_16)
 #define tag "SSD1306"
 
+
+SemaphoreHandle_t mutex;
+SemaphoreHandle_t data_uart;
+
+static uint8_t data_lora[26];
 static float symbol_error;
 static float SAMPLES = 50;
-
 static volatile Module_Data module_data;
+static const int RX_BUF_SIZE = 1024;
 
-#include <stdio.h>
+void init(void) {
+    const uart_config_t uart_config = {
+        .baud_rate = 115200,
+        .data_bits = UART_DATA_8_BITS,
+        .parity = UART_PARITY_DISABLE,
+        .stop_bits = UART_STOP_BITS_1,
+        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
+    };
+    // We won't use a buffer for sending data.
+    uart_driver_install(UART_NUM_2, RX_BUF_SIZE * 2, 0, 0, NULL, 0);
+    uart_param_config(UART_NUM_2, &uart_config);
+    uart_set_pin(UART_NUM_2, TXD_PIN, RXD_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
+}
 
-// void main() {
-//   char buff[100];
-//   int a, b;
+int sendData(const char* logName, const char* data)
+{
+    const int len = strlen(data);
+    const int txBytes = uart_write_bytes(UART_NUM_2, data, len);
+    ESP_LOGI(logName, "Wrote %d bytes", txBytes);
+    return txBytes;
+}
+ void tx_task(void *arg)
+{
+    static const char *TX_TASK_TAG = "TX_TASK";
+    esp_log_level_set(TX_TASK_TAG, ESP_LOG_INFO);
+    while (1) {
+        sendData(TX_TASK_TAG, "Hello world\n");
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+    }
+}
 
-//   sprintf(buff, "a = %d, b = %d", 10, 20);
-
-//   sscanf(buff, "a = %d, b = %d", &a, &b);
-
-//   printf("a = %d, b = %d\n", a, b);  // distributes a = 10, b = 20
-// }
+void rx_task(void *arg)
+{
+    static const char *RX_TASK_TAG = "RX_TASK";
+    esp_log_level_set(RX_TASK_TAG, ESP_LOG_INFO);
+    uint8_t* data = (uint8_t*) malloc(RX_BUF_SIZE+1);
+    while (1) {
+        const int rxBytes = uart_read_bytes(UART_NUM_2, data, RX_BUF_SIZE, 1000 / portTICK_PERIOD_MS);
+        if (rxBytes > 0) {
+            data[rxBytes] = 0;
+            ESP_LOGI(RX_TASK_TAG, "Read %d bytes: '%s'", rxBytes, data);
+			int i = 0;
+            while (data[i] != '\0')
+			{
+            data_lora[i] = data[i];
+            i++;
+            }
+			xSemaphoreGive(data_uart);
+        }
+		
+    }
+    free(data);
+	
+	
+}
 
 #if CONFIG_PRIMARY
 
@@ -54,34 +103,22 @@ static volatile Module_Data module_data;
 void task_primary(void *pvParameters)
 // void task_primary()
 {   
-	while(1)
+while(1)
 {   
-	Data_Bkres data_bkres;
-    data_bkres.Temp_Data = 1;
-	data_bkres.Do_Data = 2;
-	data_bkres.Ph_Data = 3;
-	data_bkres.EC_Data = 4;
-	data_bkres.time_stamp = 5;
-
+	  if(xSemaphoreTake(data_uart ,portMAX_DELAY) == pdTRUE)
+  { 
 	ESP_LOGI(pcTaskGetName(NULL), "Start");
-	uint8_t buf[256]; // Maximum Payload size of SX1276/77/78/79 is 255
 	while(1) 
 	{
-		int send_len = sprintf((char *)buf,"TEMP = %.2lf, DO = %.2lf, PH = %.2lf, EC = %.2lf, TIME =%.2lf ",data_bkres.Temp_Data,data_bkres.Do_Data,data_bkres.Ph_Data,data_bkres.EC_Data,data_bkres.time_stamp);
-
-#if 0
-		// Maximum Payload size of SX1276/77/78/79 is 255
-		memset(&buf[send_len], 0x20, 255-send_len);
-		send_len = 255;
-#endif
-		lora_send_packet(buf, send_len);
-		ESP_LOGI(pcTaskGetName(NULL), "%d byte packet sent:[%.*s]", send_len, send_len, buf);
+        const int len = strlen((char*)data_lora);
+		lora_send_packet(data_lora, len);
+		ESP_LOGI(pcTaskGetName(NULL), "%d byte packet sent:[%.*s]",len,len,data_lora);
 		bool waiting = true;
 		TickType_t startTick = xTaskGetTickCount();
 		while(waiting) {
 			lora_receive(); // put into receive mode
 			if(lora_received()) {
-				int rxLen = lora_receive_packet(buf, sizeof(buf));
+				int rxLen = lora_receive_packet(data_lora, sizeof(data_lora));
 				TickType_t currentTick = xTaskGetTickCount();
 				TickType_t diffTick = currentTick - startTick;
 					symbol_error = (float)lora_packet_lost() /  SAMPLES;
@@ -95,7 +132,7 @@ void task_primary(void *pvParameters)
 					module_data.snr=lora_packet_snr();
 					
 					xSemaphoreGive(mutex);
-				ESP_LOGI(pcTaskGetName(NULL), "%d byte packet received:[%.*s]", rxLen, rxLen, buf);
+				ESP_LOGI(pcTaskGetName(NULL), "%d byte packet received:[%.*s]", rxLen, rxLen,data_lora);
 				ESP_LOGI(pcTaskGetName(NULL), "lora packet snr :%.2lf dbm", lora_packet_snr());
 				ESP_LOGI(pcTaskGetName(NULL), "lora packet rssi :%d dbm", lora_packet_rssi());
 				ESP_LOGI(pcTaskGetName(NULL), "lora packet lost  :%d", lora_packet_lost());
@@ -117,6 +154,7 @@ void task_primary(void *pvParameters)
 	} // end while
 	}
 }
+}
 #endif // CONFIG_PRIMARY
 
 
@@ -125,9 +163,9 @@ void task_primary(void *pvParameters)
 void task_secondary(void *pvParameters)
 // void task_secondary()
 {  
-	
 	while(1)
 	{
+    
  	ESP_LOGI(pcTaskGetName(NULL), "Start");
 	uint8_t buf[256]; // Maximum Payload size of SX1276/77/78/79 is 255
 	while(1) 
@@ -201,8 +239,9 @@ void app_main()
 {  
     
    SSD1306_Init();
+   init();
    mutex = xSemaphoreCreateBinary();
-
+   data_uart = xSemaphoreCreateBinary();
 	if (lora_init() == 0)
 	{
 		ESP_LOGE(pcTaskGetName(NULL), "Does not recognize the module");
@@ -261,11 +300,10 @@ void app_main()
 	//int sf = lora_get_spreading_factor();
 	ESP_LOGI(pcTaskGetName(NULL), "spreading_factor=%d", sf);
 
-  
+   
 
 #if CONFIG_PRIMARY
-
-     
+    xTaskCreate(rx_task, "uart_rx_task", 1024*4, NULL, configMAX_PRIORITIES+2, NULL);
 	xTaskCreatePinnedToCore(&task_primary, "PRIMARY", 1024*16, NULL,tskIDLE_PRIORITY + 2,NULL,0);
 		// void task_primary();
 #endif
@@ -273,7 +311,6 @@ void app_main()
 #if CONFIG_SECONDARY
 
 	// task_secondary();
-
 	xTaskCreatePinnedToCore(&task_secondary, "SECONDARY", 1024*16, NULL,tskIDLE_PRIORITY + 2,NULL,0);
 #endif
 

@@ -404,11 +404,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/lib_lorawan/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
   include("C:/Espressif/frameworks/esp-idf-v5.0.2/thang/build/esp-idf/lora/cmake_install.cmake")
 endif()
 
